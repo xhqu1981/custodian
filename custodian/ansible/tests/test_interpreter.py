@@ -59,7 +59,7 @@ class ModderTest(unittest.TestCase):
         mod = {'_pull_all': {'List': [2, 3]}}
         modder.modify(mod, d)
         self.assertEqual(d, {'Bye': 'World', 'List': [], 'number': 10})
-        mod = {'_push_all': {'List': xrange(10)}}
+        mod = {'_push_all': {'List': list(range(10))}}
         modder.modify(mod, d)
         self.assertEqual(d, {'Bye': 'World',
                              'List': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -160,8 +160,7 @@ class MyObject():
     def __init__(self, a):
         self.b = {'a': a}
 
-    @property
-    def to_dict(self):
+    def as_dict(self):
         return {'b': {'a': self.b['a']}}
 
     @staticmethod

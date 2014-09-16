@@ -27,9 +27,9 @@ from pymatgen.io.vaspio_set import MITVaspInputSet
 from monty.json import MontyDecoder
 from monty.os.path import which
 
-from custodian.ansible.interpreter import Modder
 from custodian.ansible.actions import FileActions, DictActions
 from custodian.custodian import Job, gzip_dir
+from custodian.vasp.interpreter import VaspModder
 
 
 VASP_INPUT_FILES = {"INCAR", "POSCAR", "POTCAR", "KPOINTS"}
@@ -166,18 +166,7 @@ class VaspJob(Job):
                 pass
 
         if self.settings_override is not None:
-            vi = VaspInput.from_directory(".")
-            m = Modder([FileActions, DictActions])
-            modified = []
-            for a in self.settings_override:
-                if "dict" in a:
-                    modified.append(a["dict"])
-                    vi[a["dict"]] = m.modify_object(a["action"],
-                                                    vi[a["dict"]])
-                elif "filename" in a:
-                    m.modify(a["action"], a["filename"])
-            for f in modified:
-                vi[f].write_file(f)
+            VaspModder().apply_actions(self.settings_override)
 
     def run(self):
         """
@@ -250,12 +239,11 @@ class VaspJob(Job):
                         {"filename": "CONTCAR",
                          "action": {"_file_copy": {"dest": "POSCAR"}}}])]
 
-    @property
-    def to_dict(self):
+    def as_dict(self):
         d = dict(vasp_cmd=self.vasp_cmd,
                  output_file=self.output_file, suffix=self.suffix,
                  final=self.final, gzipped=self.gzipped, backup=self.backup,
-                 default_vasp_input_set=self.default_vis.to_dict,
+                 default_vasp_input_set=self.default_vis.as_dict(),
                  auto_npar=self.auto_npar, auto_gamma=self.auto_gamma,
                  settings_override=self.settings_override,
                  gamma_vasp_cmd=self.gamma_vasp_cmd

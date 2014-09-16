@@ -7,6 +7,8 @@ ErrorHandlers and Jobs.
 """
 
 from __future__ import division
+import six
+from six.moves import filter
 
 __author__ = "Shyue Ping Ong, William Davidson Richards"
 __copyright__ = "Copyright 2012, The Materials Project"
@@ -28,6 +30,9 @@ import shutil
 from abc import ABCMeta, abstractmethod
 from monty.tempfile import ScratchDir
 from monty.shutil import gzip_dir
+from monty.json import MSONable
+from monty.dev import deprecated
+
 
 pjoin = os.path.join
 
@@ -200,8 +205,8 @@ class Custodian(object):
                 if i <= restart:
                     #Skip all jobs until the restart point.
                     continue
-                run_log.append({"job": job.to_dict, "corrections": []})
-                for attempt in xrange(self.max_errors):
+                run_log.append({"job": job.as_dict(), "corrections": []})
+                for attempt in range(self.max_errors):
                     logger.info(
                         "Starting job no. {} ({}) attempt no. {}. Errors "
                         "thus far = {}.".format(
@@ -329,24 +334,30 @@ def _do_check(handlers, terminate_func=None, skip_over_errors=False):
     return corrections, terminal
 
 
-class JSONSerializable(object):
+class JSONSerializable(MSONable):
     """
     Base class to be inherited to provide useful standard json serialization
     and deserialization protocols based on init args.
     """
 
-    @property
-    def to_dict(self):
+    def as_dict(self):
         d = {"@module": self.__class__.__module__,
              "@class": self.__class__.__name__}
         if hasattr(self, "__init__"):
             for c in inspect.getargspec(self.__init__).args:
                 if c != "self":
                     a = self.__getattribute__(c)
-                    if hasattr(a, "to_dict"):
-                        a = a.to_dict
+                    if hasattr(a, "as_dict"):
+                        a = a.as_dict()
                     d[c] = a
         return d
+
+    @property
+    @deprecated(
+        message="All to_dict properties have been deprecated. They will be "
+                "removed from v0.8. Use the as_dict() method instead.")
+    def to_dict(self):
+        return self.as_dict()
 
     @classmethod
     def from_dict(cls, d):
@@ -359,11 +370,10 @@ class JSONSerializable(object):
         return cls(**kwargs)
 
 
-class ErrorHandler(JSONSerializable):
+class ErrorHandler(six.with_metaclass(ABCMeta, JSONSerializable)):
     """
     Abstract base class defining the interface for an ErrorHandler.
     """
-    __metaclass__ = ABCMeta
 
     is_monitor = False
     """
@@ -414,11 +424,10 @@ class ErrorHandler(JSONSerializable):
         pass
 
 
-class Job(JSONSerializable):
+class Job(six.with_metaclass(ABCMeta, JSONSerializable)):
     """
     Abstract base class defining the interface for a Job.
     """
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def setup(self):

@@ -1,2 +1,2 @@
-pymatgen>=2.10.3
-monty==0.4.1
+monty==0.5.3
+six==1.7.3
