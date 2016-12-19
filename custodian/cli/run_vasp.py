@@ -217,7 +217,7 @@ def do_run(args):
                   gzipped_output=args.gzip,
                   checkpoint=True,
                   terminate_func=terminate_func,
-                  terminate_on_nonzero_returncode=args.nzrc_exit)
+                  terminate_on_nonzero_returncode=not args.no_rc_exit)
     c.run()
 
 
@@ -290,8 +290,8 @@ def main():
              "data=1. The arguments are deserialized using yaml."
     )
 
-    parser.add_argument("--nzrc_exit", dest="nzrc_exit", action="store_true",
-                        help="Exit on non-zero return code from VASP")
+    parser.add_argument("--no_rc_exit", dest="no_rc_exit", action="store_true",
+                        help="Don't exit on non-zero return code from VASP")
 
     parser.add_argument("--terminate_func", dest="terminate_func", type=str,
                         choices=["none", "scancel"], default="none",
