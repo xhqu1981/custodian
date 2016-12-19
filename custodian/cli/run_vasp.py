@@ -207,7 +207,8 @@ def do_run(args):
     c = Custodian(handlers, get_jobs(args), validators,
                   max_errors=args.max_errors, scratch_dir=args.scratch,
                   gzipped_output=args.gzip,
-                  checkpoint=True)
+                  checkpoint=True,
+                  terminate_on_nonzero_returncode=args.nzrc_exit)
     c.run()
 
 
@@ -279,6 +280,9 @@ def main():
              "arguments are joined by a comma. E.g., MyHandler?myfile=a,"
              "data=1. The arguments are deserialized using yaml."
     )
+
+    parser.add_argument("--nzrc_exit", action="store_true",
+                        help="Exit on non-zero return code from VASP")
 
     parser.add_argument(
         "jobs", metavar="jobs", type=str, nargs='+',
