@@ -194,6 +194,13 @@ def get_jobs(args):
                           backup=backup, settings_override=settings,
                           copy_magmom=copy_magmom, auto_npar=auto_npar)
 
+def get_terminate_func(args):
+    from mpworks.workflows.wf_utils import ScancelJobStepTerminator
+    stderr_file = "std_err.txt"
+    scancel_terminator = ScancelJobStepTerminator(stderr_file)
+    terminate_funcs = {"none": None,
+                       "scancel": scancel_terminator.cancel_job_step}
+    return terminate_funcs[args.terminate_func.lower()]
 
 def do_run(args):
     FORMAT = '%(asctime)s %(message)s'
@@ -203,11 +210,13 @@ def do_run(args):
                 args.handlers]
     validators = [load_class("custodian.vasp.validators", n) for n in
                   args.validators]
+    terminate_func = get_terminate_func(args)
 
     c = Custodian(handlers, get_jobs(args), validators,
                   max_errors=args.max_errors, scratch_dir=args.scratch,
                   gzipped_output=args.gzip,
                   checkpoint=True,
+                  terminate_func=terminate_func,
                   terminate_on_nonzero_returncode=args.nzrc_exit)
     c.run()
 
@@ -281,8 +290,13 @@ def main():
              "data=1. The arguments are deserialized using yaml."
     )
 
-    parser.add_argument("--nzrc_exit", action="store_true",
+    parser.add_argument("--nzrc_exit", dest="nzrc_exit", action="store_true",
                         help="Exit on non-zero return code from VASP")
+
+    parser.add_argument("--terminate_func", dest="terminate_func", type=str,
+                        choices=["none", "scancel"], default="none",
+                        help="Select the terminator_func type, which is called by the"
+                             "monitors to kill VASP at runtime")
 
     parser.add_argument(
         "jobs", metavar="jobs", type=str, nargs='+',
