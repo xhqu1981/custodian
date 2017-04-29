@@ -626,6 +626,13 @@ class OutOfMemoryHandlerTest(unittest.TestCase):
         self.assertEqual(h.check(), True)
         d = h.correct()
         self.assertEqual(d["errors"], ['seg_fault'])
+        self.assertEqual(d["actions"],
+                         [{'dict': 'INCAR',
+                           'action': {'_set': {'ISMEAR': '0'}}}])
+        self.assertEqual(h.check(), True)
+        d = h.correct()
+        self.assertEqual(d["errors"], ['seg_fault'])
+        # no fix if still seg fault
         self.assertEqual(d["actions"], [])
 
     def tearDown(self):

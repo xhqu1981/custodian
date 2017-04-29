@@ -419,6 +419,12 @@ class StdErrHandler(ErrorHandler):
                 actions.append({"dict": "INCAR",
                                 "action": {"_set": {"KPAR": reduced_kpar}}})
 
+        if "seg_fault" in self.errors:
+            if vi["INCAR"].get("ISMEAR", 1) != 0:
+                actions.append({"dict": "INCAR",
+                                "action": {"_set": {"ISMEAR": "0"}}})
+
+
         VaspModder(vi=vi).apply_actions(actions)
         return {"errors": list(self.errors), "actions": actions}
 
