@@ -359,7 +359,8 @@ class StdErrHandler(ErrorHandler):
         "lrf_comm": ["LRF_COMMUTATOR internal error"],
         "kpoints_trans": ["internal error in GENERATE_KPOINTS_TRANS: "
                           "number of G-vector changed in star"],
-        "out_of_memory": ["Allocation would exceed memory limit"]
+        "out_of_memory": ["Allocation would exceed memory limit",
+                          "insufficient virtual memory"]
     }
 
     def __init__(self, output_filename="std_err.txt"):
