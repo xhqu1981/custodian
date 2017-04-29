@@ -1,0 +1,951 @@
+ running on   64 total cores
+ distrk:  each k-point on   32 cores,    2 groups
+ distr:  one band on    1 cores,   32 groups
+ using from now: INCAR     
+ vasp.5.4.1 24Jun15 (build Jul  8 2016 11:28:16) complex                         
+ POSCAR found type information on POSCAR  O  Al Y 
+ POSCAR found :  3 types and      80 ions
+ scaLAPACK will be used
+
+ ----------------------------------------------------------------------------- 
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|      For optimal performance we recommend to set                            |
+|        NCORE= 4 - approx SQRT( number of cores)                             |
+|      NCORE specifies how many cores store one orbital (NPAR=cpu/NCORE).     |
+|      This setting can  greatly improve the performance of VASP for DFT.     |
+|      The default, NPAR=number of cores might be grossly inefficient         |
+|      on modern multi-core architectures or massively parallel machines.     |
+|      Do your own testing !!!!                                               |
+|      Unfortunately you need to use the default for GW and RPA calculations. |
+|      (for HF NCORE is supported but not extensively tested yet)             |
+|                                                                             |
+ ----------------------------------------------------------------------------- 
+
+
+ ----------------------------------------------------------------------------- 
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|      You have enabled k-point parallelism (KPAR>1).                         |
+|      This developmental code was originally  written by Paul Kent at ORNL,  |
+|      and carefully double checked in Vienna.                                |
+|      GW as well as linear response parallelism added by Martijn Marsman     |
+|      and Georg Kresse.                                                      |
+|      Carefully verify results versus KPAR=1.                                |
+|      Report problems to Paul Kent and Vienna.                               |
+|                                                                             |
+ ----------------------------------------------------------------------------- 
+
+ WARNING: PSMAXN for non-local potential too small
+ LDA part: xc-table for Pade appr. of Perdew
+ generate k-points for:    4    4    4
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ...
+ WAVECAR not read
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.501077408996E+04    0.50108E+04   -0.34609E+05 20736   0.252E+03
+DAV:   2    -0.414292684992E+02   -0.50522E+04   -0.48868E+04 27392   0.498E+02
+DAV:   3    -0.718233468684E+03   -0.67680E+03   -0.67200E+03 25248   0.163E+02
+DAV:   4    -0.749303629024E+03   -0.31070E+02   -0.30987E+02 30752   0.320E+01
+DAV:   5    -0.750257234857E+03   -0.95361E+00   -0.95324E+00 30208   0.522E+00    0.563E+01
+DAV:   6    -0.649621403701E+03    0.10064E+03   -0.46644E+02 24192   0.407E+01    0.162E+01
+DAV:   7    -0.652019326848E+03   -0.23979E+01   -0.47873E+01 29920   0.114E+01    0.116E+01
+DAV:   8    -0.651849718246E+03    0.16961E+00   -0.56287E+00 30112   0.517E+00    0.379E+00
+DAV:   9    -0.651822891296E+03    0.26827E-01   -0.19551E+00 29952   0.258E+00    0.109E+00
+DAV:  10    -0.651805672556E+03    0.17219E-01   -0.24721E-01 26784   0.984E-01    0.445E-01
+DAV:  11    -0.651811826057E+03   -0.61535E-02   -0.23013E-02 29824   0.345E-01    0.141E-01
+DAV:  12    -0.651811460676E+03    0.36538E-03   -0.45222E-03 25184   0.136E-01    0.342E-02
+DAV:  13    -0.651811529095E+03   -0.68419E-04   -0.35072E-04 28064   0.370E-02    0.159E-02
+DAV:  14    -0.651811528141E+03    0.95371E-06   -0.31222E-05 29472   0.103E-02    0.548E-03
+DAV:  15    -0.651811527563E+03    0.57794E-06   -0.48631E-06 28480   0.479E-03    0.204E-03
+DAV:  16    -0.651811527226E+03    0.33747E-06   -0.10239E-06 32160   0.171E-03    0.189E-03
+DAV:  17    -0.651811526918E+03    0.30764E-06   -0.86222E-08 28768   0.761E-04    0.963E-04
+DAV:  18    -0.651811526850E+03    0.67615E-07   -0.41544E-08 32736   0.444E-04    0.335E-04
+DAV:  19    -0.651811526845E+03    0.50786E-08   -0.12588E-08 31776   0.218E-04    0.807E-05
+DAV:  20    -0.651811526884E+03   -0.39268E-07   -0.10511E-09 35552   0.667E-05    0.692E-05
+DAV:  21    -0.651811526912E+03   -0.27962E-07   -0.11013E-10 18592   0.219E-05    0.562E-05
+DAV:  22    -0.651811526927E+03   -0.14705E-07    0.85515E-11 14528   0.186E-05    0.282E-05
+DAV:  23    -0.651811526932E+03   -0.47512E-08    0.18296E-10 14720   0.126E-05    0.121E-05
+DAV:  24    -0.651811526932E+03   -0.43656E-09    0.37754E-11 14752   0.700E-06    0.636E-06
+DAV:  25    -0.651811526932E+03    0.18190E-09    0.21133E-10 14368   0.492E-06    0.170E-06
+DAV:  26    -0.651811526932E+03   -0.43656E-10    0.15985E-10 14848   0.311E-06
+   1 F= -.65181153E+03 E0= -.65181153E+03  d E =0.000000E+00
+ generate k-points for:    4    4    4
+
+ ----------------------------------------------------------------------------- 
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|      Your generating k-point grid is not commensurate to the symmetry       |
+|      of the lattice.  This can cause   slow convergence with respect        |
+|      to k-points for HF type calculations                                   |
+|      suggested SOLUTIONS:                                                   |
+|       ) if not already the case, use automatic k-point generation           |
+|       ) shift your grid to Gamma (G) (e.g. required for hex or fcc lattice) |
+|                                                                             |
+ ----------------------------------------------------------------------------- 
+
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#2  0xACF00F in __open_nocancel
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#8  0xABA6BF in MAIN__ at main.f90:?
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#2  0xACF00F in __open_nocancel
+#4  0x4D7167 in __nonl_MOD_spher
+#3  0x620800 in maxl_
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#4  0x4D7167 in __nonl_MOD_spher
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+srun: error: nid00632: tasks 18,21: Segmentation fault
+srun: Terminating job step 4746489.0
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#4  0x4D7167 in __nonl_MOD_spher
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#5  0x4D8D84 in __nonl_MOD_spher_der
+srun: error: nid00684: tasks 50,53: Segmentation fault
+#8  0xABA6BF in MAIN__ at main.f90:?
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+slurmstepd: error: *** STEP 4746489.0 ON nid00632 CANCELLED AT 2017-04-28T15:31:52 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#2  0xACF00F in __open_nocancel
+#4  0x4D7167 in __nonl_MOD_spher
+#3  0x620800 in maxl_
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#4  0x4D7167 in __nonl_MOD_spher
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#2  0xACF00F in __open_nocancel
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#3  0x620800 in maxl_
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#8  0xABA6BF in MAIN__ at main.f90:?
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#8  0xABA6BF in MAIN__ at main.f90:?
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#3  0x620800 in maxl_
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#2  0xACF00F in __open_nocancel
+#8  0xABA6BF in MAIN__ at main.f90:?
+#3  0x620800 in maxl_
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#4  0x4D7167 in __nonl_MOD_spher
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#2  0xACF00F in __open_nocancel
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#3  0x620800 in maxl_
+BDIR= 1  IDIR= 2  IQ= -1
+#8  0xABA6BF in MAIN__ at main.f90:?
+#4  0x4D7167 in __nonl_MOD_spher
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+srun: error: nid00632: tasks 6,12: Segmentation fault
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#5  0x4D8D84 in __nonl_MOD_spher_der
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#8  0xABA6BF in MAIN__ at main.f90:?
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#8  0xABA6BF in MAIN__ at main.f90:?
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#4  0x4D7167 in __nonl_MOD_spher
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#8  0xABA6BF in MAIN__ at main.f90:?
+
+Program received signal SIGSEGV: Segmentation fault - invalid memory reference.
+
+Backtrace for this error:
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+srun: error: nid00684: tasks 38,44: Segmentation fault
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#2  0xACF00F in __open_nocancel
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#3  0x4D79F2 in __nonl_MOD_spher
+#4  0x4D8D84 in __nonl_MOD_spher_der
+#5  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#6  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#7  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x4D79F2 in __nonl_MOD_spher
+#4  0x4D8D84 in __nonl_MOD_spher_der
+#5  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#6  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#7  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#2  0xACF00F in __open_nocancel
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#3  0x620800 in maxl_
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#8  0xABA6BF in MAIN__ at main.f90:?
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#8  0xABA6BF in MAIN__ at main.f90:?
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#2  0xACF00F in __open_nocancel
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#4  0x4D7167 in __nonl_MOD_spher
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#8  0xABA6BF in MAIN__ at main.f90:?
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#2  0xACF00F in __open_nocancel
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#2  0xACF00F in __open_nocancel
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#8  0xABA6BF in MAIN__ at main.f90:?
+#3  0x620800 in maxl_
+#2  0xACF00F in __open_nocancel
+#2  0xACF00F in __open_nocancel
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#4  0x4D7167 in __nonl_MOD_spher
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#2  0xACF00F in __open_nocancel
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#3  0x620800 in maxl_
+#8  0xABA6BF in MAIN__ at main.f90:?
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#4  0x4D7167 in __nonl_MOD_spher
+#8  0xABA6BF in MAIN__ at main.f90:?
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#0  0x374C18D in _gfortrani_backtrace at backtrace.c:258
+#1  0x374B800 in _gfortrani_backtrace_handler at compile_options.c:129
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+#2  0xACF00F in __open_nocancel
+#3  0x620800 in maxl_
+#4  0x4D7167 in __nonl_MOD_spher
+#5  0x4D8D84 in __nonl_MOD_spher_der
+#6  0xA1FB0D in __mlr_main_nmr_MOD_mlr_b_main
+#7  0xA23DA6 in __mlr_main_nmr_MOD_mlr_skeleton
+#8  0xABA6BF in MAIN__ at main.f90:?
+srun: error: nid00632: tasks 8,10,17,22: Segmentation fault
+srun: error: nid00684: tasks 42,49: Segmentation fault
+srun: error: nid00632: tasks 3,9,11,13,16,26: Segmentation fault
+srun: error: nid00684: tasks 40,45,48,54,58: Segmentation fault
+srun: error: nid00684: tasks 35,41,43,63: Segmentation fault
+srun: error: nid00632: tasks 0,2,4,14,20,24-25,28,30-31: Segmentation fault
+srun: error: nid00684: tasks 32-34,36-37,39,46-47,51-52,55-57,59-62: Segmentation fault
+srun: error: nid00632: tasks 1,5,7,15,19,23,27,29: Segmentation fault

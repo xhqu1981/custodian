@@ -617,6 +617,17 @@ class OutOfMemoryHandlerTest(unittest.TestCase):
                          [{'dict': 'INCAR',
                            'action': {'_set': {'KPAR': 2}}}])
 
+    def test_seg_fault(self):
+        vi = VaspInput.from_directory(".")
+        from custodian.vasp.interpreter import VaspModder
+        VaspModder(vi=vi).apply_actions([{"dict": "INCAR",
+                                          "action": {"_set": {"KPAR": 4}}}])
+        h = StdErrHandler("std_err.txt.seg_fault")
+        self.assertEqual(h.check(), True)
+        d = h.correct()
+        self.assertEqual(d["errors"], ['seg_fault'])
+        self.assertEqual(d["actions"], [])
+
     def tearDown(self):
         shutil.move("INCAR.orig", "INCAR")
         clean_dir()
