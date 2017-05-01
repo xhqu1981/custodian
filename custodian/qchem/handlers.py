@@ -189,7 +189,7 @@ class QChemErrorHandler(ErrorHandler):
         return {"errors": self.errors, "actions": actions}
 
     def fix_not_enough_total_memory(self):
-        if self.fix_step.params['rem']["jobtype"] == "freq":
+        if self.fix_step.params['rem']["jobtype"] in ["freq", "nmr"]:
             ncpu = 1
             if "-np" in self.qchem_job.current_command:
                 cmd = self.qchem_job.current_command
@@ -225,7 +225,7 @@ class QChemErrorHandler(ErrorHandler):
                 self.qchem_job.select_command("half_cpus", self.qcinp)
                 return "half_cpus"
             else:
-                if self.fix_step.params['rem']["jobtype"] == "freq":
+                if self.fix_step.params['rem']["jobtype"] in ["freq", "nmr"]:
                     act = self.fix_not_enough_total_memory()
                     return act
                 return None
@@ -233,7 +233,7 @@ class QChemErrorHandler(ErrorHandler):
             self.qchem_job.select_command("openmp", self.qcinp)
             return "openmp"
         else:
-            if self.fix_step.params['rem']["jobtype"] == "freq":
+            if self.fix_step.params['rem']["jobtype"] in ["freq", "nmr"]:
                 act = self.fix_not_enough_total_memory()
                 return act
             return None

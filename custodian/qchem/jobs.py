@@ -145,7 +145,7 @@ class QchemJob(Job):
     @staticmethod
     def is_openmp_compatible(qcinp):
         for j in qcinp.jobs:
-            if j.params["rem"]["jobtype"] == "freq":
+            if j.params["rem"]["jobtype"] in ["freq", "nmr"]:
                 return False
             try:
                 from rubicon.utils.qchem_info import get_qchem_version
