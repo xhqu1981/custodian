@@ -364,7 +364,9 @@ class StdErrHandler(ErrorHandler):
         "seg_fault": ["Segmentation fault"]
     }
 
-    def __init__(self, output_filename="std_err.txt"):
+    def __init__(self, output_filename="std_err.txt",
+                 correct_out_of_memory=False,
+                 correct_seg_fault=False):
         """
         Initializes the handler with the output file to check.
 
@@ -373,10 +375,16 @@ class StdErrHandler(ErrorHandler):
                 is being redirected. The error messages that are checked are
                 present in the stderr. Defaults to "std_err.txt", which is the
                 default redirect used by :class:`custodian.vasp.jobs.VaspJob`.
+            correct_out_of_memory (bool): whether to correct the out of memory
+                error.
+            correct_seg_fault (bool): whether to correct the segmentation
+                fault errror.
         """
         self.output_filename = output_filename
         self.errors = set()
         self.error_count = Counter()
+        self.correct_out_of_memory = correct_out_of_memory
+        self.correct_seg_fault = correct_seg_fault
 
     def check(self):
         self.errors = set()
@@ -413,13 +421,13 @@ class StdErrHandler(ErrorHandler):
                 actions.append({"dict": "KPOINTS", "action": {"_set": {"kpoints": [[m] * 3]}}})
                 self.error_count['kpoints_trans'] += 1
 
-        if "out_of_memory" in self.errors:
+        if "out_of_memory" in self.errors and self.correct_out_of_memory:
             if vi["INCAR"].get("KPAR", 1) > 1:
                 reduced_kpar = max(vi["INCAR"].get("KPAR", 1) // 2, 1)
                 actions.append({"dict": "INCAR",
                                 "action": {"_set": {"KPAR": reduced_kpar}}})
 
-        if "seg_fault" in self.errors:
+        if "seg_fault" in self.errors and self.correct_seg_fault:
             if vi["INCAR"].get("ISMEAR", 1) != 0:
                 actions.append({"dict": "INCAR",
                                 "action": {"_set": {"ISMEAR": "0"}}})

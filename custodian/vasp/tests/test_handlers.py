@@ -597,7 +597,7 @@ class OutOfMemoryHandlerTest(unittest.TestCase):
         from custodian.vasp.interpreter import VaspModder
         VaspModder(vi=vi).apply_actions([{"dict": "INCAR",
                                           "action": {"_set": {"KPAR": 4}}}])
-        h = StdErrHandler("std_err.txt.oom")
+        h = StdErrHandler("std_err.txt.oom", correct_out_of_memory=True)
         self.assertEqual(h.check(), True)
         d = h.correct()
         self.assertEqual(d["errors"], ['out_of_memory'])
@@ -609,7 +609,7 @@ class OutOfMemoryHandlerTest(unittest.TestCase):
         from custodian.vasp.interpreter import VaspModder
         VaspModder(vi=vi).apply_actions([{"dict": "INCAR",
                                           "action": {"_set": {"KPAR": 4}}}])
-        h = StdErrHandler("std_err.txt.insufficient_mem")
+        h = StdErrHandler("std_err.txt.insufficient_mem", correct_out_of_memory=True)
         self.assertEqual(h.check(), True)
         d = h.correct()
         self.assertEqual(d["errors"], ['out_of_memory'])
@@ -622,7 +622,7 @@ class OutOfMemoryHandlerTest(unittest.TestCase):
         from custodian.vasp.interpreter import VaspModder
         VaspModder(vi=vi).apply_actions([{"dict": "INCAR",
                                           "action": {"_set": {"KPAR": 4}}}])
-        h = StdErrHandler("std_err.txt.seg_fault")
+        h = StdErrHandler("std_err.txt.seg_fault", correct_seg_fault=True)
         self.assertEqual(h.check(), True)
         d = h.correct()
         self.assertEqual(d["errors"], ['seg_fault'])
