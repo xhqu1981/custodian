@@ -360,7 +360,8 @@ class StdErrHandler(ErrorHandler):
         "kpoints_trans": ["internal error in GENERATE_KPOINTS_TRANS: "
                           "number of G-vector changed in star"],
         "out_of_memory": ["Allocation would exceed memory limit",
-                          "insufficient virtual memory"],
+                          "insufficient virtual memory",
+                          "Out Of Memory"],
         "seg_fault": ["Segmentation fault"]
     }
 

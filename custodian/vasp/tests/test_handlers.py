@@ -605,6 +605,14 @@ class OutOfMemoryHandlerTest(unittest.TestCase):
                          [{'dict': 'INCAR',
                            'action': {'_set': {'KPAR': 2}}}])
 
+        h = StdErrHandler("std_err.txt.oom2", correct_out_of_memory=True)
+        self.assertEqual(h.check(), True)
+        d = h.correct()
+        self.assertEqual(d["errors"], ['out_of_memory'])
+        self.assertEqual(d["actions"],
+                         [{'dict': 'INCAR',
+                           'action': {'_set': {'KPAR': 1}}}])
+
         vi = VaspInput.from_directory(".")
         from custodian.vasp.interpreter import VaspModder
         VaspModder(vi=vi).apply_actions([{"dict": "INCAR",
