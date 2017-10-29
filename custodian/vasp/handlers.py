@@ -361,7 +361,8 @@ class StdErrHandler(ErrorHandler):
                           "number of G-vector changed in star"],
         "out_of_memory": ["Allocation would exceed memory limit",
                           "insufficient virtual memory",
-                          "Out Of Memory"],
+                          "Out Of Memory",
+                          "Exceeded job memory limit at some point."],
         "seg_fault": ["Segmentation fault"]
     }
 
